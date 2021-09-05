@@ -5,9 +5,15 @@ using UnityEngine;
 public class FoodFall : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private bool left = false, right = false;
+    private bool left = false, right = false, heat = false;
+    private int taste = 0;
+    [SerializeField] private int normalTaste;
+    [SerializeField] private Sprite[] state;
+    private SpriteRenderer s_rend;
     void Start()
     {
+        //s_rend = GetComponent<SpriteRenderer>();
+        //s_rend.sprite = state[taste];
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -21,10 +27,13 @@ public class FoodFall : MonoBehaviour
         }
         if (right)
         {
-            Debug.Log("right");
             right = false;
             rb.velocity = new Vector2(0, 0);
             rb.AddForce(new Vector2(-1, 0.8f) * 10, ForceMode2D.Impulse);
+        }
+        if (heat)
+        {
+            //OnHeatFly();
         }
     }
 
@@ -36,7 +45,17 @@ public class FoodFall : MonoBehaviour
         }
         if (collision.tag == "right")
         {
-            right = false;
+            right = true;
         }
+        if (collision.tag == "heat")
+        {
+            heat = true;
+        }
+    }
+
+    private void OnHeatFly()
+    {
+        taste++;
+        s_rend.sprite = state[taste];
     }
 }
