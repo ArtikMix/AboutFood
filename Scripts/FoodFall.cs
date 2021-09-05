@@ -32,6 +32,10 @@ public class FoodFall : MonoBehaviour
         }
         if (right)
         {
+            if (man.eat == true)
+            {
+                Swallow();
+            }
             right = false;
             rb.velocity = new Vector2(0, 0);
             rb.AddForce(new Vector2(-1, 0.8f) * 10, ForceMode2D.Impulse);
