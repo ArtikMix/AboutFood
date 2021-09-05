@@ -6,14 +6,15 @@ public class FoodFall : MonoBehaviour
 {
     private Rigidbody2D rb;
     private bool left = false, right = false, heat = false;
-    private int taste = 0;
+    [SerializeField] private int taste = -1;
     [SerializeField] private int normalTaste;
     [SerializeField] private Sprite[] state;
     private SpriteRenderer s_rend;
+    FatMan man;
     void Start()
     {
-        //s_rend = GetComponent<SpriteRenderer>();
-        //s_rend.sprite = state[taste];
+        s_rend = GetComponent<SpriteRenderer>();//пока влада не нарисует
+        //s_rend.sprite = state[taste];//пока влада не дорисует
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -21,6 +22,10 @@ public class FoodFall : MonoBehaviour
     {
         if (left)
         {
+            if (man.eat == true)
+            {
+                Swallow();
+            }
             left = false;
             rb.velocity = new Vector2(0, 0);
             rb.AddForce(new Vector2(1, 0.8f) * 10, ForceMode2D.Impulse);
@@ -33,7 +38,8 @@ public class FoodFall : MonoBehaviour
         }
         if (heat)
         {
-            //OnHeatFly();
+            heat = false;
+            OnHeatFly();//пока влада не нарисует
         }
     }
 
@@ -41,10 +47,12 @@ public class FoodFall : MonoBehaviour
     {
         if (collision.tag == "left")
         {
+            man = collision.gameObject.GetComponent<FatMan>();
             left = true;
         }
         if (collision.tag == "right")
         {
+            man = collision.gameObject.GetComponent<FatMan>();
             right = true;
         }
         if (collision.tag == "heat")
@@ -55,7 +63,15 @@ public class FoodFall : MonoBehaviour
 
     private void OnHeatFly()
     {
-        taste++;
-        s_rend.sprite = state[taste];
+        if (taste + 2 <= state.Length)
+        {
+            taste++;
+            s_rend.sprite = state[taste];
+        }
+    }
+
+    private void Swallow()
+    {
+        Destroy(gameObject);
     }
 }

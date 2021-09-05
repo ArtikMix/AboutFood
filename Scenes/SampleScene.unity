@@ -257,12 +257,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3478e35d4ba8464084b28fa62e13437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taste: 0
   normalTaste: 2
   state:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +414,7 @@ GameObject:
   - component: {fileID: 985456322}
   - component: {fileID: 985456321}
   - component: {fileID: 985456320}
+  - component: {fileID: 985456323}
   m_Layer: 0
   m_Name: Fat2
   m_TagString: right
@@ -512,6 +513,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &985456323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985456319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4734281da24fc42419fb2fe326a17ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eat: 0
 --- !u!1 &1814980449
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +537,7 @@ GameObject:
   - component: {fileID: 1814980452}
   - component: {fileID: 1814980451}
   - component: {fileID: 1814980450}
+  - component: {fileID: 1814980453}
   m_Layer: 0
   m_Name: Fat1
   m_TagString: left
@@ -621,3 +636,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1814980453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814980449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4734281da24fc42419fb2fe326a17ff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eat: 0
