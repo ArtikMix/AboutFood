@@ -11,15 +11,17 @@ public class FoodFall : MonoBehaviour
     [SerializeField] private Sprite[] state;
     private SpriteRenderer s_rend;
     FatMan man;
+    Quaternion quaternion;
     void Start()
     {
-        s_rend = GetComponent<SpriteRenderer>();//пока влада не нарисует
-        //s_rend.sprite = state[taste];//пока влада не дорисует
+        s_rend = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        quaternion = Quaternion.Euler(0f, 0f, Random.Range(0, 360f));
     }
 
     void Update()
     {
+        transform.rotation = Quaternion.Lerp(Quaternion.identity, quaternion, Mathf.PingPong(Time.time, 1f));
         if (left)
         {
             if (man.eat == true)
