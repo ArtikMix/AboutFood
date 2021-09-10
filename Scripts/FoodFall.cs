@@ -12,8 +12,10 @@ public class FoodFall : MonoBehaviour
     private SpriteRenderer s_rend;
     FatMan man;
     Quaternion quaternion;
+    ScoreManager score;
     void Start()
     {
+        score = FindObjectOfType<ScoreManager>();
         s_rend = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         quaternion = Quaternion.Euler(0f, 0f, Random.Range(0, 360f));
@@ -78,6 +80,14 @@ public class FoodFall : MonoBehaviour
 
     private void Swallow()
     {
+        if (taste == normalTaste)
+        {
+            score.TopUp(10);
+        }
+        else
+        {
+            score.TopUp(-20);
+        }
         Destroy(gameObject);
     }
 }
