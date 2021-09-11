@@ -18,5 +18,6 @@ public class FatMan : MonoBehaviour, IPointerDownHandler
     void IPointerDownHandler.OnPointerDown(PointerEventData data)
     {
         eat = true;
+        Debug.Log("was pressed");
     }
 }

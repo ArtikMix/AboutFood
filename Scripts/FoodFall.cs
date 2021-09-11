@@ -32,7 +32,7 @@ public class FoodFall : MonoBehaviour
             }
             left = false;
             rb.velocity = new Vector2(0, 0);
-            rb.AddForce(new Vector2(1, 0.8f) * 10, ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(1, 0.6f) * 10, ForceMode2D.Impulse);
         }
         if (right)
         {
@@ -42,7 +42,7 @@ public class FoodFall : MonoBehaviour
             }
             right = false;
             rb.velocity = new Vector2(0, 0);
-            rb.AddForce(new Vector2(-1, 0.8f) * 10, ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(-1, 0.6f) * 10, ForceMode2D.Impulse);
         }
         if (heat)
         {
