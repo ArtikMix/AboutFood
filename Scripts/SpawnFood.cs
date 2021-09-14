@@ -16,7 +16,7 @@ public class SpawnFood : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(food[Random.Range(0, 5)], spawnplace[Random.Range(0, 2)].position, Quaternion.identity);
+            Instantiate(food[Random.Range(0, 4)], spawnplace[Random.Range(0, 2)].position, Quaternion.identity);
             yield return new WaitForSeconds(1f);
         }
     }

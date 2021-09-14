@@ -11,6 +11,7 @@ public class FatMan : MonoBehaviour, IPointerDownHandler
     {
         if (Input.touchCount == 0)
         {
+            //Debug.Log("wasnt pressed");
             eat = false;
         }
     }
@@ -18,6 +19,6 @@ public class FatMan : MonoBehaviour, IPointerDownHandler
     void IPointerDownHandler.OnPointerDown(PointerEventData data)
     {
         eat = true;
-        Debug.Log("was pressed");
+        //Debug.Log("was pressed");
     }
 }

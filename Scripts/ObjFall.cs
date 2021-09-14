@@ -2,32 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FoodFall : MonoBehaviour
+public class ObjFall : MonoBehaviour
 {
+    private int destroying = 0;
     private Rigidbody2D rb;
     private bool left = false, right = false, heat = false;
-    [SerializeField] private int taste = -1;
-    [SerializeField] private int normalTaste;
-    [SerializeField] private Sprite[] state;
-    private SpriteRenderer s_rend;
     FatMan man;
     Quaternion quaternion;
     ScoreManager score;
     void Start()
     {
         score = FindObjectOfType<ScoreManager>();
-        s_rend = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         quaternion = Quaternion.Euler(0f, 0f, Random.Range(0, 360f));
         GameObject[] aCollisionObjects;
         aCollisionObjects = GameObject.FindGameObjectsWithTag("food");
-        foreach(GameObject g in aCollisionObjects)
+        foreach (GameObject g in aCollisionObjects)
         {
             Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), g.GetComponent<Collider2D>());
         }
     }
 
-    void Update()
+    private void Update()
     {
         GameObject[] aCollisionObjects;
         aCollisionObjects = GameObject.FindGameObjectsWithTag("food");
@@ -59,7 +55,7 @@ public class FoodFall : MonoBehaviour
         if (heat)
         {
             heat = false;
-            OnHeatFly();//пока влада не нарисует
+            DestroyingObj();
         }
     }
 
@@ -81,25 +77,17 @@ public class FoodFall : MonoBehaviour
         }
     }
 
-    private void OnHeatFly()
+    public void DestroyingObj()
     {
-        if (taste + 2 <= state.Length)
+        destroying++;
+        if (destroying == 3)
         {
-            taste++;
-            s_rend.sprite = state[taste];
+            Destroy(gameObject);
         }
     }
 
     private void Swallow()
     {
-        if (taste == normalTaste)
-        {
-            score.TopUp(10);
-        }
-        else
-        {
-            score.TopUp(-20);
-        }
-        Destroy(gameObject);
+        score.TopUp(-50);
     }
 }
