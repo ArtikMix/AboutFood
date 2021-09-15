@@ -6,23 +6,27 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public bool start = false;
-    [SerializeField] private GameObject startButton, pausePanel;
+    [SerializeField] private GameObject startButton, pauseButton;
+    [SerializeField] private Sprite pause, game;
     public void StartButton()
     {
         startButton.SetActive(false);
         start = true;
+        pauseButton.SetActive(true);
     }
 
     public void PauseButton()
     {
         Time.timeScale = 0f;
-        pausePanel.SetActive(true);
+        //pausePanel.SetActive(true);
+        pauseButton.GetComponent<Image>().sprite = pause;
     }
 
     public void ResumeButton()
     {
-        pausePanel.SetActive(false);
+        //pausePanel.SetActive(false);
         Time.timeScale = 1f;
+        pauseButton.GetComponent<Image>().sprite = game;
     }
 
     public void QuitButton()
