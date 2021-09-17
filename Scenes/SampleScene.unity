@@ -634,6 +634,7 @@ GameObject:
   - component: {fileID: 277059695}
   - component: {fileID: 277059697}
   - component: {fileID: 277059696}
+  - component: {fileID: 277059698}
   m_Layer: 5
   m_Name: FatMan_2
   m_TagString: Untagged
@@ -698,6 +699,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277059694}
   m_CullTransparentMesh: 1
+--- !u!95 &277059698
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277059694}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bf2e6790fbbfdd144896e385b2c2026c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &296555840
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +729,7 @@ GameObject:
   - component: {fileID: 296555841}
   - component: {fileID: 296555843}
   - component: {fileID: 296555842}
+  - component: {fileID: 296555844}
   m_Layer: 5
   m_Name: FatMan_1
   m_TagString: Untagged
@@ -773,6 +794,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296555840}
   m_CullTransparentMesh: 1
+--- !u!95 &296555844
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296555840}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ecaac6375c0feda40a66998a4f852a9c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &321831729
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class ObjFall : MonoBehaviour
     FatMan man;
     Quaternion quaternion;
     ScoreManager score;
+    string type;
     void Start()
     {
         score = FindObjectOfType<ScoreManager>();
