@@ -17,19 +17,19 @@ public class UIManager : MonoBehaviour
 
     public void PauseButton()
     {
-        Time.timeScale = 0f;
-        //pausePanel.SetActive(true);
-        pauseButton.GetComponent<Image>().sprite = pause;
+        if (pauseButton.GetComponent<Image>().sprite == pause)
+        {
+            Time.timeScale = 1f;
+            pauseButton.GetComponent<Image>().sprite = game;
+        }
+        if (pauseButton.GetComponent<Image>().sprite == game)
+        {
+            Time.timeScale = 0f;
+            pauseButton.GetComponent<Image>().sprite = pause;
+        }
     }
 
-    public void ResumeButton()
-    {
-        //pausePanel.SetActive(false);
-        Time.timeScale = 1f;
-        pauseButton.GetComponent<Image>().sprite = game;
-    }
-
-    public void QuitButton()
+    public void QuitButton()//без неё
     {
         Application.Quit();
     }
