@@ -6,7 +6,7 @@ public class FoodFall : MonoBehaviour
 {
     private Rigidbody2D rb;
     private bool left = false, right = false, heat = false;
-    [SerializeField] private int taste = -1;
+    private int taste = 0;
     [SerializeField] private int normalTaste;
     [SerializeField] private Sprite[] state;
     private SpriteRenderer s_rend;
@@ -83,9 +83,9 @@ public class FoodFall : MonoBehaviour
 
     private void OnHeatFly()
     {
-        if (taste + 2 <= state.Length)
+        taste++;
+        if (taste-1 <= state.Length)
         {
-            taste++;
             s_rend.sprite = state[taste];
         }
     }
